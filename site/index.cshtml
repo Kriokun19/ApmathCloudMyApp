@@ -1,4 +1,7 @@
-
+@{
+    var mxRequest = Request.Params["mx"];
+    var mx = 10;
+}
 <html>
     <script type="text/javascript"
             src="https://www.google.com/jsapi?autoload={
@@ -28,7 +31,7 @@
             data.addColumn('number', 'Y');
 
             minx = 0;
-            maxx = 10;
+            maxx = @mx;
             for (var i = minx; i < maxx;i += 0.1){
             data.addRow([i, urfunc(i)]);
             }
