@@ -1,5 +1,5 @@
 @{
-    var mx = 5;
+    var mx = "pow(x,2)";
 }
 <html>
 <head>
@@ -19,7 +19,7 @@
 
             function urfunc(a) {
                 var x = a;
-                var exp = "pow(x,2)";
+                var exp = @mx;
                 exp = exp.replace(/pow/g, "Math.pow");
                 var exp = exp.replace(/sin/g, "Math.sin");
                 var exp = exp.replace(/cos/g, "Math.cos");
@@ -32,7 +32,7 @@
             data.addColumn('number', 'Y');
 
             minx = 0;
-            maxx = @mx;
+            maxx = 10;
             for (var i = minx; i < maxx; i += 0.1) {
                 data.addRow([i, urfunc(i)]);
             }
