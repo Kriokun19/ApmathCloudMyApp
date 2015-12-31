@@ -1,7 +1,4 @@
-@{
-    var reqfunc = Request.Params["funct"];
-    var funct = "pow(x,2)";
-}
+
 <html>
     <script type="text/javascript"
             src="https://www.google.com/jsapi?autoload={
@@ -14,8 +11,7 @@
 
     <script type="text/javascript">
         google.setOnLoadCallback(drawChart);
-       // var exp = "pow(x,2)";
-        var exp = @funct;
+       var exp = "pow(x,2)";
         function drawChart() {
             function urfunc(a) {
                 var x = a;
