@@ -1,8 +1,7 @@
-<html>
 @{
     var funct = "pow(x,2)";
 }
-
+<html>
 <script type="text/javascript"
         src="https://www.google.com/jsapi?autoload={
             'modules':[{
@@ -16,8 +15,9 @@
     google.setOnLoadCallback(drawChart);
 
     function drawChart() {
+        var gr = @funct;
         function urfunc(a) {
-            var exp = @funct;
+            var exp = gr;
             var x = a;
             exp = exp.replace(/pow/g, "Math.pow");
             var exp = exp.replace(/sin/g, "Math.sin");
