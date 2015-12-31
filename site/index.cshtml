@@ -17,9 +17,9 @@
 
         function drawChart() {
 
-            function urfunc(a) {
+            function urfunc(a, myexp) {
                 var x = a;
-                var exp = @mx;
+                var exp = myexp;
                 exp = exp.replace(/pow/g, "Math.pow");
                 var exp = exp.replace(/sin/g, "Math.sin");
                 var exp = exp.replace(/cos/g, "Math.cos");
@@ -34,7 +34,7 @@
             minx = 0;
             maxx = 10;
             for (var i = minx; i < maxx; i += 0.1) {
-                data.addRow([i, urfunc(i)]);
+                data.addRow([i, urfunc(i, @mx)]);
             }
 
             var options = {
