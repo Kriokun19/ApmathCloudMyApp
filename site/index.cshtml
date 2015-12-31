@@ -1,5 +1,5 @@
 @{
-    var mx = "pow(x,2)";
+    string mx = "pow(x,2)";
 }
 <html>
 <head>
@@ -19,7 +19,7 @@
 
             function urfunc(a, myexp) {
                 var x = a;
-                var exp = myexp;
+                var exp = myexp.toString;
                 exp = exp.replace(/pow/g, "Math.pow");
                 var exp = exp.replace(/sin/g, "Math.sin");
                 var exp = exp.replace(/cos/g, "Math.cos");
