@@ -1,5 +1,5 @@
 @{
-    var funct = "pow(x,2)";
+    var f = 5;
 }
 <html>
 <script type="text/javascript"
@@ -12,10 +12,10 @@
           }"></script>
 
 <script type="text/javascript">
-    google.setOnLoadCallback(drawChart(@funct));
-    function drawChart(gr) {     
+    google.setOnLoadCallback(drawChart());
+    function drawChart() {     
         function urfunc(a) {
-            var exp = gr;
+            var exp = "pow(x,2)";
             var x = a;
             exp = exp.replace(/pow/g, "Math.pow");
             var exp = exp.replace(/sin/g, "Math.sin");
@@ -28,8 +28,7 @@
         data.addColumn('number', 'X');
         data.addColumn('number', 'Y');
 
-        minx = 0;
-        maxx = 10;
+        maxx = @f, minx = 0;
         for (var i = minx; i < maxx;i += 0.1){
             data.addRow([i, urfunc(i)]);
         }
