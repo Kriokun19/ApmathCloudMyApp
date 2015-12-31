@@ -1,8 +1,8 @@
-<html>
 @{
-        var reqfunc = Request.Params["funct"];
-        var funct = "pow(x,2)";
+    var reqfunc = Request.Params["funct"];
+    var funct = "pow(x,2)";
 }
+<html>
 <head>
 
     <script type="text/javascript"
@@ -17,10 +17,9 @@
     <script type="text/javascript">
         google.setOnLoadCallback(drawChart);
        // var exp = "pow(x,2)";
-
+        var exp = @funct;
         function drawChart() {
             function urfunc(a) {
-                var exp = @funct;
                 var x = a;
                 exp = exp.replace(/pow/g, "Math.pow");
                 var exp = exp.replace(/sin/g, "Math.sin");
