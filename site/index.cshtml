@@ -11,9 +11,10 @@
 
     <script type="text/javascript">
         google.setOnLoadCallback(drawChart);
-       var exp = "pow(x,2)";
+      
         function drawChart() {
             function urfunc(a) {
+                var exp = "pow(x,2)";
                 var x = a;
                 exp = exp.replace(/pow/g, "Math.pow");
                 var exp = exp.replace(/sin/g, "Math.sin");
