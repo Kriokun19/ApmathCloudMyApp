@@ -12,10 +12,8 @@
           }"></script>
 
 <script type="text/javascript">
-    google.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-        var gr = @funct;
+    google.setOnLoadCallback(drawChart(@funct));
+    function drawChart(gr) {     
         function urfunc(a) {
             var exp = gr;
             var x = a;
