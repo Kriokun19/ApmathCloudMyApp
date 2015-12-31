@@ -1,5 +1,5 @@
 @{
-    var f = 5;
+    var mx = 5;
 }
 <html>
 <script type="text/javascript"
@@ -18,8 +18,8 @@
             var exp = "pow(x,2)";
             var x = a;
             exp = exp.replace(/pow/g, "Math.pow");
-            var exp = exp.replace(/sin/g, "Math.sin");
-            var exp = exp.replace(/cos/g, "Math.cos");
+            exp = exp.replace(/sin/g, "Math.sin");
+            exp = exp.replace(/cos/g, "Math.cos");
             var expression = new String(exp);
             return eval(expression.toString());
         }
@@ -28,7 +28,8 @@
         data.addColumn('number', 'X');
         data.addColumn('number', 'Y');
 
-        maxx = @f, minx = 0;
+        maxx = @mx;
+        minx = 0;
         for (var i = minx; i < maxx;i += 0.1){
             data.addRow([i, urfunc(i)]);
         }
