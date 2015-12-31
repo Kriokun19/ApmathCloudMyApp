@@ -1,9 +1,10 @@
+<html>
 @{
     var funct = "pow(x,2)";
 }
-<html>
-    <script type="text/javascript"
-            src="https://www.google.com/jsapi?autoload={
+
+<script type="text/javascript"
+        src="https://www.google.com/jsapi?autoload={
             'modules':[{
               'name':'visualization',
               'version':'1',
@@ -11,41 +12,41 @@
             }]
           }"></script>
 
-    <script type="text/javascript">
-        google.setOnLoadCallback(drawChart);
-      
-        function drawChart() {
-            function urfunc(a) {
-                var exp = @funct;
-                var x = a;
-                exp = exp.replace(/pow/g, "Math.pow");
-                var exp = exp.replace(/sin/g, "Math.sin");
-                var exp = exp.replace(/cos/g, "Math.cos");
-                var expression = new String(exp);
-                return eval(expression.toString());
-            }
+<script type="text/javascript">
+    google.setOnLoadCallback(drawChart);
 
-            var data = new google.visualization.DataTable();
-            data.addColumn('number', 'X');
-            data.addColumn('number', 'Y');
-
-            minx = 0;
-            maxx = 10;
-            for (var i = minx; i < maxx;i += 0.1){
-            data.addRow([i, urfunc(i)]);
-            }
-
-            var options = {
-                title: 'Company Performance',
-                curveType: 'function',
-                legend: { position: 'bottom' }
-            };
-
-            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-            chart.draw(data, options);
+    function drawChart() {
+        function urfunc(a) {
+            var exp = @funct;
+            var x = a;
+            exp = exp.replace(/pow/g, "Math.pow");
+            var exp = exp.replace(/sin/g, "Math.sin");
+            var exp = exp.replace(/cos/g, "Math.cos");
+            var expression = new String(exp);
+            return eval(expression.toString());
         }
-    </script>
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'X');
+        data.addColumn('number', 'Y');
+
+        minx = 0;
+        maxx = 10;
+        for (var i = minx; i < maxx;i += 0.1){
+            data.addRow([i, urfunc(i)]);
+        }
+
+        var options = {
+            title: 'Company Performance',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+    }
+</script>
 <head>
 </head>
 <body>
