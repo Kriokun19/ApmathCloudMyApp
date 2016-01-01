@@ -1,3 +1,6 @@
+@{
+    string e = Request.QueryString["f"];
+}
 <html>
 <head>
     <script type="text/javascript"
@@ -16,7 +19,7 @@
 
             function urfunc(a) {
                 var x = a;
-                var exp = "pow(x,2)";
+                var exp = @e;
                 exp = exp.replace(/pow/g, "Math.pow");
                 var exp = exp.replace(/sin/g, "Math.sin");
                 var exp = exp.replace(/cos/g, "Math.cos");
