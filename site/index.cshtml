@@ -3,9 +3,9 @@
     var mx = 10;
     var layersClear = int.TryParse(mxRequest, out mx);
 
-    var mixRequest = Request.Params["x0"];
-    var mix = 10;
-    var layersClear2 = int.TryParse(mxRequest, out mix);
+   // var mixRequest = Request.Params["x0"];
+   // var mix = 10;
+   // var layersClear2 = int.TryParse(mxRequest, out mix);
 }
 <html>
 <head>
@@ -47,7 +47,7 @@
             data.addColumn('number', 'X');
             data.addColumn('number', 'Y');
 
-            minx = @mix;
+            minx = 1;
             maxx = @mx;
             for (var i = minx; i < maxx; i += 0.1) {
                 data.addRow([i, urfunc(i)]);
