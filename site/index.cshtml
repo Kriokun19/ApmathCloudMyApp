@@ -18,11 +18,11 @@
             var arrQrStr = new Array();
             var arr = spQrStr.split('&');
 
-            //for (var i = 0; i < arr.length; i++) {
-                var queryvalue = arr[0].split('=');
-                var e = queryvalue[1];
-            //}
-
+            for (var i = 0; i < arr.length; i++) {
+                var queryvalue = arr[i].split('=');
+                if(queryvalue[0] == "f")
+                    var e = queryvalue[1];
+            }
 
             function urfunc(a) {
                 var x = a;
