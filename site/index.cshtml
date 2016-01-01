@@ -2,11 +2,13 @@
     
     var mixRequest = Request.Params["x0"];
     var mix = 0;
-    var layersClear2 = int.TryParse(mixRequest, out mix);
+    var x0Clear = int.TryParse(mixRequest, out mix);
+    var x0ErrorMessage = "x0 is not correct!";
     
     var mxRequest = Request.Params["x1"];
     var mx = 10;
-    var layersClear = int.TryParse(mxRequest, out mx);
+    var x1Clear = int.TryParse(mxRequest, out mx);
+    var x1ErrorMessage = "x1 is not correct!";
 }
 <html>
 <head>
@@ -20,6 +22,15 @@
           }"></script>
 
     <script type="text/javascript">
+        @if (!x0Clear)
+        {
+            Response.Write(String.Format("alert({0});", x0ErrorMessage));
+        }
+        @if (!x1Clear)
+        {
+            Response.Write(String.Format("alert({0});", x1ErrorMessage));
+        }
+
         google.setOnLoadCallback(drawChart);
       
         function drawChart() {
@@ -27,19 +38,23 @@
             var spQrStr = qrStr.substring(1);
             var arrQrStr = new Array();
             var arr = spQrStr.split('&');
-
+            var e = "error";
             for (var i = 0; i < arr.length; i++) {
                 var queryvalue = arr[i].split('=');
                 if(queryvalue[0] == "f")
-                    var e = queryvalue[1];
+                    e = queryvalue[1];
+            }
+            if (e == "error")
+            {
+                Response.Write(String.Format("alert({0});", x1ErrorMessage));
             }
 
             function urfunc(a) {
                 var x = a;
                 var exp = e;
                 exp = exp.replace(/pow/g, "Math.pow");
-                var exp = exp.replace(/sin/g, "Math.sin");
-                var exp = exp.replace(/cos/g, "Math.cos");
+                exp = exp.replace(/sin/g, "Math.sin");
+                exp = exp.replace(/cos/g, "Math.cos");
                 var expression = new String(exp);
                 return eval(expression.toString());
             }
@@ -55,7 +70,7 @@
             }
 
             var options = {
-                title: 'Company Performance',
+                title: 'The graph of your function',
                 curveType: 'function',
                 legend: { position: 'bottom' }
             };
@@ -67,6 +82,7 @@
     </script>
 </head>
 <body>
+    <p>Please, input your function f and an interval (x0, x1)</p>
     <div id="curve_chart" style="width: 900px; height: 500px"></div>
 </body>
 </html>
