@@ -1,3 +1,8 @@
+@{
+    var mxRequest = Request.Params["x1"];
+    var mx = 10;
+    var layersClear = int.TryParse(mxRequest, out mx);
+}
 <html>
 <head>
     <script type="text/javascript"
@@ -39,7 +44,7 @@
             data.addColumn('number', 'Y');
 
             minx = 0;
-            maxx = 10;
+            maxx = @mx;
             for (var i = minx; i < maxx; i += 0.1) {
                 data.addRow([i, urfunc(i)]);
             }
