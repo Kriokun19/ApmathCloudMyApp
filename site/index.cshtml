@@ -47,7 +47,7 @@
             data.addColumn('number', 'X');
             data.addColumn('number', 'Y');
 
-            minx = 0;
+            minx = @mix;
             maxx = @mx;
             for (var i = minx; i < maxx; i += 0.1) {
                 data.addRow([i, urfunc(i)]);
