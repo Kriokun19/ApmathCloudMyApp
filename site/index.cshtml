@@ -58,6 +58,7 @@
                 exp = exp.replace(/x^2/g, "Math.pow(x,2)");
                 exp = exp.replace(/x^3/g, "Math.pow(x,3)");
                 exp = exp.replace(/x^4/g, "Math.pow(x,4)");
+                e = exp;
                 var expression = new String(exp);
                 return eval(expression.toString());
             }
