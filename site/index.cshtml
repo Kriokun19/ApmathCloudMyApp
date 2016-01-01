@@ -51,6 +51,13 @@
                 exp = exp.replace(/pow/g, "Math.pow");
                 exp = exp.replace(/sin/g, "Math.sin");
                 exp = exp.replace(/cos/g, "Math.cos");
+                exp = exp.replace(/abs/g, "Math.abs");
+                exp = exp.replace(/tg/g, "Math.tan");
+                exp = exp.replace(/tan/g, "Math.tan");
+                exp = exp.replace(/pi/g, "Math.PI");
+                exp = exp.replace(/x^2/g, "Math.pow(x,2)");
+                exp = exp.replace(/x^3/g, "Math.pow(x,3)");
+                exp = exp.replace(/x^4/g, "Math.pow(x,4)");
                 var expression = new String(exp);
                 return eval(expression.toString());
             }
@@ -78,7 +85,7 @@
     </script>
 </head>
 <body>
-    <p>Please, input your function f and an interval (x0, x1)</p>
+    <p>Please, input your function f(x) and an interval (x0, x1)</p>
     <div id="curve_chart" style="width: 900px; height: 500px"></div>
 </body>
 </html>
